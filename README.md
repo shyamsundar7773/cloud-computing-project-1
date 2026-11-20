@@ -1,44 +1,84 @@
-# Cloud Project
+# ShopSphere — Cloud & Data IT Career Launch
 
-Cloud Project is a practical learning workspace for building foundations in
-Windows, networking, Linux, Python, Git, SQL, REST APIs, Azure, cloud
-operations, and data engineering. The eventual integrated example is a retail
-business cloud operations and data platform.
+ShopSphere is a fictional online retailer used to learn how business
+applications, data systems, and cloud operations fit together. The project
+grows incrementally into a Retail Business Cloud Operations & Data Platform;
+planned capabilities are not claims about an implemented production system.
 
-## Learning sequence
+## Programme
 
-Module 0 establishes and verifies the local project environment. Later modules
-will build on that foundation; no Azure resources or paid services are part of
-this initial setup.
+Module 0 is the one-time local environment and project setup. The formal
+programme has ten modules, each completed in order through four perspectives:
 
-## Workspace map
+1. **A — Project Building**
+2. **B — Technical Learning**
+3. **C — Business Understanding**
+4. **D — Interview Preparation**
 
-- `docs/` — project architecture and verified environment notes
-- `.vscode/` — project-scoped editor and extension recommendations
-- `.venv/` — local Python virtual environment (ignored by Git)
+Finish all four tracks of a module before moving to the next. The supplied
+syllabus is the source of truth for module titles, phase titles, and coverage.
+See [the learning programme](docs/learning-programme/README.md) for the module
+map, progress tracker, evidence rules, and reusable templates.
 
-Additional source, tests, and data folders should be added when their first
-module needs them rather than created as empty placeholders.
+## Current foundation
 
-## Local setup
+- The Windows `.venv` is configured and can be activated from this directory.
+- VS Code workspace settings select the project environment and enable
+  terminal activation.
+- A local PostgreSQL 18 service is available on port `3000`; the
+  `shopsphere` database and least-privilege `shopsphere_app` role have been
+  created, and a read-only connection from the project `.venv` is verified.
+- `origin` points to the intended GitHub repository. See
+  [Module 0 readiness](docs/module-00-final-readiness.md) for current
+  authentication and publication evidence.
+- No application, data pipeline, or Azure resources have been built as part of
+  setup. The local learning database is for practice, not production.
 
-Open this folder in VS Code. The workspace selects `.venv` as its Python
-interpreter and enables Python environment activation in the integrated
-terminal. Activate it manually in PowerShell with:
+## Windows setup
+
+Open this directory in VS Code. If the project environment does not exist,
+create it with the Python launcher:
+
+```powershell
+py -3.14 -m venv .venv
+```
+
+Activate and verify it:
 
 ```powershell
 .\.venv\Scripts\Activate.ps1
+python --version
+python -m pip --version
 ```
 
-Use `deactivate` to leave the environment. The `py` launcher can be used if
-the `python` command is not available on PATH.
+Use `deactivate` to leave the environment. The dependency manifest currently
+contains only the PostgreSQL driver used for the verified local read-only
+connection. Install it with `python -m pip install -r requirements.txt`; add
+other dependencies only when a module requires them.
 
-The existing PostgreSQL service is not managed by this project. Its current
-port and authentication requirements are recorded in `docs/environment.md`.
-Do not place passwords or other credentials in this repository.
+Copy `.env.example` to `.env` only when a module needs local configuration.
+Replace placeholders locally, never commit `.env`, and never put credentials
+in code, documentation, command transcripts, or chat. The administrator SQL
+login and resource inventory were verified locally; keep the application
+password in ignored local configuration only. A service-ready check alone does
+not authenticate a database user.
 
-## Safety
+## Project map
 
-This repository is local. No changes to other projects or system services are
-made by project scripts. Do not commit or publish changes without explicit
-approval.
+- `docs/` — architecture, environment, Module 0 closeout, programme and module
+  workspaces
+- `src/`, `tests/`, `database/`, `api/`, `cloud/` — indexed starting points for
+  future work; no application code is prebuilt
+- `data/` — locations and handling guidance for sample and processed data
+- `operations/`, `notes/`, `assessments/`, `evidence/` — operational records
+  and learner-owned evidence
+- `.vscode/` — project-scoped editor settings and extension recommendations
+- `.venv/` — local Python environment, excluded from Git
+
+## Safety and scope
+
+Use synthetic or explicitly approved data. Keep passwords, tokens, private
+keys, local `.env` files, database dumps, and runtime logs out of version
+control. Verify current pricing and limits before any future cloud activity;
+Module 0 provisions no cloud resources. Learning phases remain incomplete
+until the learner demonstrates, assesses, explains, and revises the work.

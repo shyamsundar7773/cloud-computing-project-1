@@ -9,6 +9,11 @@ __pycache__/
 .env
 .env.*
 !.env.example
+.pgpass
+*.log
+database/backups/
+*.dump
+*.backup
 
 # Editor and operating-system files
 .vscode/*
