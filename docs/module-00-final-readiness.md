@@ -1,9 +1,9 @@
 # Module 0 — Final readiness record
 
 **Audit date:** 2026-11-20
-**Overall status:** **PARTIAL** — environment, learning workspace, local
-database, application-role connectivity, and GitHub identity are verified.
-The reviewed setup changes still require local commit and remote publication.
+**Overall status:** **MODULE 0 COMPLETE** — environment, learning workspace,
+local database, application-role connectivity, and GitHub publication are
+verified.
 
 Module 0 is onboarding and project setup, not an additional formal syllabus
 module. This record distinguishes installed, configured, reachable,
@@ -15,10 +15,10 @@ started.
 | Area | Test and evidence | Result | Status | Remaining action |
 |---|---|---|---|---|
 | Project root and repository | `Get-Location`; `git rev-parse --show-toplevel`; `git worktree list` | `E:\cloud-computing-project-1`; one registered worktree | COMPLETE | None |
-| Local Git | `git branch --show-current`; `git status --short --branch`; `git log -1 --oneline` | `main`; clean before setup changes; initial commit `0d4db52` | COMPLETE | Review and commit the Module 0 setup changes |
+| Local Git | `git branch --show-current`; `git status`; `git log -1 --oneline`; `git branch -vv` | `main`; clean; setup commit `2d9213341ac23dfa765218c7bd7f87a5a46a83d3`; tracks `origin/main` | COMPLETE | None |
 | Remote configuration | `git remote -v`; `gh repo view shyamsundar7773/cloud-computing-project-1` | `origin` is the intended public repository owned by `shyamsundar7773` | COMPLETE | None |
-| GitHub identity | `gh auth status -h github.com`; `gh api user --jq .login` after account selection | `shyamsundar7773` is active; token values are not recorded | COMPLETE | Verify publication after the authorized push |
-| Repository publication | `git ls-remote origin` before setup push | Remote had no refs at initial inspection; setup changes are not yet published | PENDING | Publish after final diff/security review; record remote hash |
+| GitHub identity | `gh auth status -h github.com`; `gh api user --jq .login` | `shyamsundar7773` is active; token values are not recorded | COMPLETE | None |
+| Repository publication | Normal `git push -u origin main`; `git ls-remote --heads origin main` | `origin/main` exists at the same commit as local `main`; upstream tracking is configured | COMPLETE | None |
 | Python launcher | `py --version`; `py -0p` | Python 3.14.3 selected; 3.13 and 3.12 also installed | COMPLETE | None |
 | Python virtual environment | Activate `.venv`; run `python --version`, `python -m pip --version`, and a basic Python command | `.venv` works; Python 3.14.3 and pip 25.3 execute | COMPLETE | None |
 | PostgreSQL service/client | `Get-Service postgresql-x64-18`; `psql --version` | Service running/automatic; client 18.6 | COMPLETE | None |
@@ -51,12 +51,14 @@ No passwords, tokens, connection strings, or actual environment values belong
 in this record. `.env.example` contains placeholders only; the working `.env`
 file must remain local and ignored.
 
-## Known limitations and next actions
+## Scope notes
 
-1. Verify the normal Git push result and remote `main` commit after reviewing
-   all changes. Never force-push.
+- The application, pipeline, reports, and cloud resources are intentionally
+  not implemented during Module 0.
+- No lesson or learner assessment has been completed; all 40 formal phase
+  workspaces remain NOT STARTED.
 
 The local environment and syllabus workspaces are ready to support the
-programme. Full Module 0 closeout remains partial until publication is
-verified. Module 1 remains
-**NOT STARTED**.
+programme. Module 1 and all other formal modules remain **NOT STARTED**; no
+lesson, assessment, business requirements document, or system-context
+deliverable has been completed.
